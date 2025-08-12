@@ -68,9 +68,10 @@ export default function ReservationsPage() {
     ? userReservations.filter((r) => parseISO(r.endTime) > now)
      .filter((r) => parseISO(r.endTime) > now)
      .sort((a, b) => parseISO(a.startTime).getTime() - parseISO(b.startTime).getTime())
-
+    : [];
+  
   const completedReservations = userReservations
-    .sort((a, b) => parseISO(b.startTime).getTime() - parseISO(a.startTime).getTime()) // 최근 완료된 순
+    .sort((a, b) => parseISO(b.startTime).getTime() - parseISO(a.startTime).getTime()); // 최근 완료된 순
 
   // 스토리지 이벤트 리스너 추가
   useEffect(() => {
